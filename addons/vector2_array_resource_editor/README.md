@@ -10,7 +10,7 @@ Download and move the unzipped folder in your project addons folder.
 
 If you use git you can also add it as a submodule:
 
-`git submodule add https://github.com/Bugwan91/vector2_array_resource_editor.git addons/vector2_array_resource_editor`
+`git submodule add https://github.com/Bugwan91/vector2_array_resource_editor.git .`
 
 ## Usage
 
