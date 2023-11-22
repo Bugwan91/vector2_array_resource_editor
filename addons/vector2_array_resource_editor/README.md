@@ -1,27 +1,29 @@
 # Vector2D Array Resource Editor
 Godot plugin allow to edit allows to edit PackedVector2Array as a polygon in the 2D scene view.
 
-- [Install Instructions](#install-instructions)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Buy Me A Coffee](#buy-me-a-coffee)
 
-## Install Instructions
-Download and move the unzipped folder in your project addons folder.
+## Installation
 
-If you use git you can also add it as a submodule:
-
-`git submodule add https://github.com/Bugwan91/vector2_array_resource_editor.git .`
+- Manual: Download the source code and move only the addons folder into your project addons folder.
 
 ## Usage
 
+
+### Controls
+
 |Action|Key|
 |-|-|
-|Add Point|left mouse click|
-|Cancel Cut|right mouse click|
-|Confirm Cut|enter / return|
+|Add vertex|left mouse click|
+|Remove vertex|right mouse click|
+|Move vertex|left mouse klick on vertex and drag|
+|Undo|Ctrl + Z|
+|Redo|Ctrl + Shift + Z|
 
 ## Buy Me A Coffee
 
-If you find this tool useful ~~send me the munny~~ consider buying me a coffee:
+If you find this tool useful consider buying me a coffee:
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/romanmovchan)
