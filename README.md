@@ -22,14 +22,14 @@ When this resource is added to a node, and it is active, the plugin will provide
 ```
 @export var polygon: Vector2ArrayResource
 ```
-- Then you can get `PackedVector2Array` from like this:
+- Then you can get `PackedVector2Array` from it like this:
 ```
 func _ready():
     # setuping polygon for CollisionPolygon2D node
     collision_polygon_2d.polygon = polygon.data
 ```
 
-There is a example scene in the `example` folder.
+There is an example scene in the `example` folder.
 
 ### Controls
 
