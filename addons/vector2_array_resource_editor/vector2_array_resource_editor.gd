@@ -1,27 +1,24 @@
 @tool
 extends EditorPlugin
 
-## If 'true' coordinates will be rounded to integer
-const round_coordinates := true
-
 ## Distance in pixels from cursor to polygon vertex when it will become active (hovered)
-const cursor_threshold := 6.0
+const CURSOR_THRESHOLD := 6.0
 
 ## Radius of vertex
-const vertex_radius := 6.0
+const VERTEX_RADIUS := 6.0
 
 ## Color of the vertex
-const vertex_color := Color(0.0, 0.5, 1.0, 0.5)
+const VERTEX_COLOR := Color(0.0, 0.5, 1.0, 0.5)
 
 ## Color of the active (hovered) vertex
-const vertex_active_color := Color(1.0, 1.0, 1.0)
+const VERTEX_ACTIVE_COLOR := Color(1.0, 1.0, 1.0)
 
 ## Color of the virtual vertex on the polygon sides when it's hovered.
 ## At this place new vertex will be created
-const vertex_new_color := Color(0.0, 1.0, 1.0, 0.5)
+const VERTEX_NEW_COLOR := Color(0.0, 1.0, 1.0, 0.5)
 
 ## Color of the polygon
-const polygon_color := Color(0.0, 0.5, 1.0, 0.2)
+const POLYGON_COLOR := Color(0.0, 0.5, 1.0, 0.2)
 
 
 var _editable: Vector2ArrayResource
@@ -37,7 +34,6 @@ var _cursor: Vector2
 
 
 func _edit(object):
-	printt("EDIT", object is Vector2ArrayResource)
 	if object is Vector2ArrayResource:
 		_editable = object
 		_editable.init_polygon()
@@ -47,7 +43,6 @@ func _edit(object):
 
 
 func _handles(object):
-	printt("HANDLES", object is Vector2ArrayResource)
 	return object is Vector2ArrayResource
 
 
@@ -111,7 +106,7 @@ func _handle_mouse_move(event) -> bool:
 func _get_active_vertex() -> int:
 	for index in range(0, _editable.polygon.size()):
 		# vertex is active when distance from cursor to it is less than treshold
-		if (_cursor - _transform_to_view * _editable.polygon[index]).length() < cursor_threshold:
+		if (_cursor - _transform_to_view * _editable.polygon[index]).length() < CURSOR_THRESHOLD:
 			return index
 	return -1
 
@@ -129,13 +124,13 @@ func _get_active_side() -> int:
 		var ab = (b - a).length()
 		var ac = (_cursor - a).length()
 		var bc = (_cursor - b).length()
-		if (ac + bc) - ab < cursor_threshold:
+		if (ac + bc) - ab < CURSOR_THRESHOLD:
 			# checking height of triangle on base of polygon side
 			# the opposite vertex is a cursor position
 			var s: float = (ab + ac + bc) * 0.5
 			var A: float = sqrt(s * (s - ab) * (s - ac) * (s - bc))
 			var h: float = 2.0 * A / ab
-			if h < cursor_threshold:
+			if h < CURSOR_THRESHOLD:
 				return index + 1
 	return -1
 
@@ -193,7 +188,7 @@ func _update_transforms():
 func _draw_polygon(overlay: Control):
 	if not is_instance_valid(_editable):
 		return
-	overlay.draw_colored_polygon(_transform_to_view * _editable.polygon, polygon_color)
+	overlay.draw_colored_polygon(_transform_to_view * _editable.polygon, POLYGON_COLOR)
 	for index in range(_editable.polygon.size()):
 		_draw_vertex(overlay, _transform_to_view * _editable.polygon[index], index)
 	if _can_add_at != -1:
@@ -201,16 +196,16 @@ func _draw_polygon(overlay: Control):
 
 
 func _draw_vertex(overlay: Control, position: Vector2, index: int):
-	overlay.draw_circle(position, vertex_radius, vertex_color)
-	overlay.draw_circle(position, vertex_radius - 1.0,\
-		vertex_active_color if index == _editable.active_index else Color(0,0,0,0))
+	overlay.draw_circle(position, VERTEX_RADIUS, VERTEX_COLOR)
+	overlay.draw_circle(position, VERTEX_RADIUS - 1.0,\
+		VERTEX_ACTIVE_COLOR if index == _editable.active_index else Color(0,0,0,0))
 	if index == _editable.active_index:
 		overlay.draw_string(overlay.get_theme_font("font"),\
 			position + Vector2(-16.0, -16.0), str(index), 1, 32.0)
 
 
 func _draw_ghost_vertex(overlay: Control, position: Vector2):
-	overlay.draw_circle(position, vertex_radius, vertex_new_color)
+	overlay.draw_circle(position, VERTEX_RADIUS, VERTEX_NEW_COLOR)
 
 
 func _clear_editable():
