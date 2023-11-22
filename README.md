@@ -1,5 +1,5 @@
 # Vector2D Array Resource Editor
-Godot plugin allow to edit allows to edit PackedVector2Array as a polygon in the 2D scene view.
+Godot plugin that allows to edit PackedVector2Array* as a polygon in the 2D scene view.
 
 - [Installation](#installation)
 - [Usage](#usage)
