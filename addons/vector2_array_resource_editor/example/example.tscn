@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://djk5m73knethq"]
+
+[ext_resource type="Script" path="res://addons/vector2_array_resource_editor/example/example.gd" id="1_adolo"]
+[ext_resource type="Resource" uid="uid://beucfgvlon46w" path="res://addons/vector2_array_resource_editor/example/resources/dog.tres" id="2_7ehs1"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_adolo")
+polygon = ExtResource("2_7ehs1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+polygon = PackedVector2Array(134, 2, 111, 53, 97, 138, 114, 204, 128, 209, 129, 229, 97, 230, 56, 138, 39, 66, -32, 71, -121, 40, -150, 87, -183, 126, -165, 204, -142, 217, -146, 236, -176, 238, -227, 139, -227, 37, -234, 0, -246, -24, -262, -64, -252, -113, -227, -147, -197, -160, -170, -165, -146, -155, -139, -133, -167, -143, -188, -140, -205, -132, -222, -106, -229, -64, -192, -47, -74, -49, 33, -58, 117, -95, 171, -145, 188, -188, 214, -205, 213, -162, 245, -148, 265, -124, 334, -111, 334, -88, 315, -72, 267, -56, 224, -61, 175, -56)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+unique_name_in_owner = true
+polygon = PackedVector2Array(134, 2, 111, 53, 97, 138, 114, 204, 128, 209, 129, 229, 97, 230, 56, 138, 39, 66, -32, 71, -121, 40, -150, 87, -183, 126, -165, 204, -142, 217, -146, 236, -176, 238, -227, 139, -227, 37, -234, 0, -246, -24, -262, -64, -252, -113, -227, -147, -197, -160, -170, -165, -146, -155, -139, -133, -167, -143, -188, -140, -205, -132, -222, -106, -229, -64, -192, -47, -74, -49, 33, -58, 117, -95, 171, -145, 188, -188, 214, -205, 213, -162, 245, -148, 265, -124, 334, -111, 334, -88, 315, -72, 267, -56, 224, -61, 175, -56)

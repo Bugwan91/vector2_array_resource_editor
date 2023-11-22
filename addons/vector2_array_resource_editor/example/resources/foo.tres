@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Vector2ArrayResource" load_steps=2 format=3 uid="uid://dwjjl3ew275lr"]
+
+[ext_resource type="Script" path="res://addons/vector2_array_resource_editor/vector2_array_resource.gd" id="1_tdmh4"]
+
+[resource]
+script = ExtResource("1_tdmh4")
+data = PackedVector2Array(0, -162, 169, 145, 126, 166, -95, 169, -144, 151)
